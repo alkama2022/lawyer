@@ -27,7 +27,7 @@ import type {
   Lawyer,
 } from "./types";
 
-export const API_BASE_URL = "/api";
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "/api";
 
 /** Thin fetch wrapper the mock layer can be swapped for. */
 export async function request<T>(path: string, init?: RequestInit): Promise<T> {
