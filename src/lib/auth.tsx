@@ -39,9 +39,6 @@ interface AuthValue {
 
 const AuthContext = createContext<AuthValue | null>(null);
 
-const DEMO_EMAIL = "a.musa@haldane-partners.law";
-const DEMO_PASSWORD = "Chambers2026";
-
 function readSession(): Session | null {
   if (typeof window === "undefined") return null;
   try {
