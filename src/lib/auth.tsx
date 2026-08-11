@@ -12,8 +12,7 @@ import type { Lawyer } from "./types";
 const STORAGE_KEY = "lexfolio.session";
 const SESSION_MINUTES = 45;
 
-const DEMO_EMAIL =
-  import.meta.env.VITE_DEMO_EMAIL ?? "a.musa@haldane-partners.law";
+const DEMO_EMAIL = import.meta.env.VITE_DEMO_EMAIL ?? "a.musa@haldane-partners.law";
 const DEMO_PASSWORD = import.meta.env.VITE_DEMO_PASSWORD ?? "Chambers2026";
 
 export interface Session {
