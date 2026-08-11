@@ -87,7 +87,10 @@ function CasesPage() {
   return (
     <div className="space-y-6">
       <PageHeader
-        crumbs={[{ label: "Dashboard", to: "/dashboard" }, { label: mine ? "My cases" : "All cases" }]}
+        crumbs={[
+          { label: "Dashboard", to: "/dashboard" },
+          { label: mine ? "My cases" : "All cases" },
+        ]}
         eyebrow="Case register"
         title={mine ? "My cases" : "All cases"}
         description="Every matter on the register with court, status, outcome and hearing information."
@@ -242,7 +245,9 @@ function CasesPage() {
       <section className="surface-card overflow-hidden">
         <header className="flex items-center justify-between border-b border-border px-5 py-3.5">
           <p className="text-sm text-muted-foreground">
-            {isLoading ? "Loading matters…" : `${cases.length} matter${cases.length === 1 ? "" : "s"}`}
+            {isLoading
+              ? "Loading matters…"
+              : `${cases.length} matter${cases.length === 1 ? "" : "s"}`}
           </p>
         </header>
         {isLoading ? <TableSkeleton rows={8} cols={6} /> : <CaseTable cases={cases} />}

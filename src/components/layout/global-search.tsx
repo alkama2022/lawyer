@@ -72,7 +72,11 @@ export function GlobalSearch({
             return (
               <CommandGroup key={g} heading={g}>
                 {items.map((r) => (
-                  <CommandItem key={`${g}-${r.id}`} value={`${g} ${r.label} ${r.sub}`} onSelect={() => go(r)}>
+                  <CommandItem
+                    key={`${g}-${r.id}`}
+                    value={`${g} ${r.label} ${r.sub}`}
+                    onSelect={() => go(r)}
+                  >
                     <div className="min-w-0">
                       <p className="truncate text-sm">{r.label}</p>
                       <p className="truncate text-xs text-muted-foreground">{r.sub}</p>

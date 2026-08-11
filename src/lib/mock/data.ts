@@ -24,7 +24,7 @@ function makeRandom(seed: number) {
   };
 }
 const rnd = makeRandom(20260811);
-const pick = <T,>(arr: readonly T[]): T => arr[Math.floor(rnd() * arr.length)]!;
+const pick = <T>(arr: readonly T[]): T => arr[Math.floor(rnd() * arr.length)]!;
 const int = (min: number, max: number) => min + Math.floor(rnd() * (max - min + 1));
 
 const BASE = new Date("2026-08-11T09:00:00.000Z").getTime();
@@ -127,7 +127,10 @@ export const clients: Client[] = clientSeeds.map(([name, type, address], i) => (
   name,
   type,
   phone: `+234 8${int(0, 9)}${int(0, 9)} ${int(100, 999)} ${int(1000, 9999)}`,
-  email: `${name.toLowerCase().replace(/[^a-z]+/g, ".").replace(/^\.|\.$/g, "")}@mail.com`,
+  email: `${name
+    .toLowerCase()
+    .replace(/[^a-z]+/g, ".")
+    .replace(/^\.|\.$/g, "")}@mail.com`,
   address,
   since: iso(-int(400, 2200)),
   notes:

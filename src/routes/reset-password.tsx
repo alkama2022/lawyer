@@ -90,7 +90,11 @@ function ResetPassword() {
             />
           </div>
           <Button className="w-full" disabled={busy}>
-            {busy ? <Loader2 className="size-4 animate-spin" /> : <ShieldCheck className="size-4" />}
+            {busy ? (
+              <Loader2 className="size-4 animate-spin" />
+            ) : (
+              <ShieldCheck className="size-4" />
+            )}
             Update password
           </Button>
         </form>

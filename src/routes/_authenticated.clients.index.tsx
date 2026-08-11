@@ -3,7 +3,14 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Search, Users } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { EmptyState, PageHeader, TableSkeleton } from "@/components/common/page";
 import { Tone } from "@/components/common/badges";
 import { casesApi, clientsApi } from "@/lib/api";

@@ -15,7 +15,8 @@ export const Route = createFileRoute("/_authenticated/record")({
       { title: "My Professional Record — Lexfolio" },
       {
         name: "description",
-        content: "Bar registration, practice areas, career statistics and lifetime case performance.",
+        content:
+          "Bar registration, practice areas, career statistics and lifetime case performance.",
       },
       { property: "og:title", content: "My Professional Record — Lexfolio" },
       {
@@ -88,7 +89,10 @@ function RecordPage() {
       </section>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <SectionCard title="Personal & professional information" bodyClassName="grid gap-4 sm:grid-cols-2">
+        <SectionCard
+          title="Personal & professional information"
+          bodyClassName="grid gap-4 sm:grid-cols-2"
+        >
           {info.map(([k, v]) => (
             <div key={k}>
               <p className="text-eyebrow">{k}</p>
@@ -118,7 +122,11 @@ function RecordPage() {
 
       <div className="grid gap-6 lg:grid-cols-2">
         <SectionCard title="Career outcome breakdown">
-          <DonutChart data={outcomeData} centerValue={`${stats.successRate}%`} centerLabel="Success rate" />
+          <DonutChart
+            data={outcomeData}
+            centerValue={`${stats.successRate}%`}
+            centerLabel="Success rate"
+          />
           <ChartLegend data={outcomeData} />
         </SectionCard>
         <SectionCard title="Outcomes by volume">

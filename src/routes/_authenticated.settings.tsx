@@ -98,11 +98,21 @@ function SettingsPage() {
             )}
             <div className="space-y-1.5">
               <Label htmlFor="cur">Current password</Label>
-              <Input id="cur" type="password" value={current} onChange={(e) => setCurrent(e.target.value)} />
+              <Input
+                id="cur"
+                type="password"
+                value={current}
+                onChange={(e) => setCurrent(e.target.value)}
+              />
             </div>
             <div className="space-y-1.5">
               <Label htmlFor="new">New password</Label>
-              <Input id="new" type="password" value={next} onChange={(e) => setNext(e.target.value)} />
+              <Input
+                id="new"
+                type="password"
+                value={next}
+                onChange={(e) => setNext(e.target.value)}
+              />
             </div>
             <Button disabled={busy} size="sm">
               {busy && <Loader2 className="size-4 animate-spin" />} Update password
@@ -131,7 +141,14 @@ function SettingsPage() {
             sign out on shared devices.
           </p>
           <div className="flex flex-wrap gap-2">
-            <Button variant="outline" size="sm" onClick={() => { extendSession(); toast.success("Session extended"); }}>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                extendSession();
+                toast.success("Session extended");
+              }}
+            >
               Extend session
             </Button>
             <Button variant="destructive" size="sm" onClick={() => setConfirmOut(true)}>

@@ -107,7 +107,11 @@ export function BarsChart({
   const horizontal = layout === "horizontal";
   return (
     <ChartFrame height={height}>
-      <BarChart data={data} layout={horizontal ? "vertical" : "horizontal"} margin={{ left: horizontal ? 40 : 0, right: 12, top: 8, bottom: 4 }}>
+      <BarChart
+        data={data}
+        layout={horizontal ? "vertical" : "horizontal"}
+        margin={{ left: horizontal ? 40 : 0, right: 12, top: 8, bottom: 4 }}
+      >
         <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" vertical={!horizontal} />
         {horizontal ? (
           <>
@@ -123,7 +127,11 @@ export function BarsChart({
         ) : (
           <>
             <XAxis dataKey="name" tick={{ fontSize: 11 }} stroke="var(--color-muted-foreground)" />
-            <YAxis tick={{ fontSize: 11 }} stroke="var(--color-muted-foreground)" allowDecimals={false} />
+            <YAxis
+              tick={{ fontSize: 11 }}
+              stroke="var(--color-muted-foreground)"
+              allowDecimals={false}
+            />
           </>
         )}
         <Tooltip cursor={{ fill: "var(--color-secondary)" }} {...tooltipStyle} />

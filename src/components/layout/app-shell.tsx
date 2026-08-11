@@ -98,9 +98,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
           <p className="font-display text-[0.95rem] font-semibold text-sidebar-accent-foreground">
             Lexfolio
           </p>
-          <p className="text-[0.7rem] tracking-wide text-sidebar-foreground/60">
-            Case Management
-          </p>
+          <p className="text-[0.7rem] tracking-wide text-sidebar-foreground/60">Case Management</p>
         </div>
       </div>
       <Separator className="bg-sidebar-border" />

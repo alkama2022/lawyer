@@ -48,8 +48,8 @@ function ForgotPassword() {
             </div>
             <h1 className="text-lg font-semibold">Check your inbox</h1>
             <p className="mt-2 text-sm text-muted-foreground">
-              If <span className="text-foreground">{email}</span> matches a counsel account, a
-              reset link valid for 30 minutes has been sent.
+              If <span className="text-foreground">{email}</span> matches a counsel account, a reset
+              link valid for 30 minutes has been sent.
             </p>
             <Button asChild variant="secondary" className="mt-5 w-full">
               <Link to="/reset-password" search={{ token: "demo-token" }}>

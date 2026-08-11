@@ -117,14 +117,74 @@ function Dashboard() {
         <CardsSkeleton count={8} />
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <StatCard label="Total cases" value={stats.total} icon={Scale} to="/cases" search={{ mine: "yes" }} hint="All matters you are counsel on" />
-          <StatCard label="Active cases" value={stats.active} icon={Activity} tone="info" to="/cases" search={{ mine: "yes", status: "Active" }} hint="Currently before the courts" />
-          <StatCard label="Won" value={stats.won} icon={BadgeCheck} tone="success" to="/outcomes" search={{ tab: "won" }} hint="Judgment in client's favour" />
-          <StatCard label="Lost" value={stats.lost} icon={XCircle} tone="danger" to="/outcomes" search={{ tab: "lost" }} hint="Adverse judgments" />
-          <StatCard label="Pending" value={stats.pending} icon={CircleDashed} to="/outcomes" search={{ tab: "pending" }} hint="Awaiting final outcome" />
-          <StatCard label="Closed" value={stats.closed} icon={Gavel} to="/cases" search={{ mine: "yes", status: "Closed" }} hint="Billed and archived" />
-          <StatCard label="Withdrawn / stopped" value={stats.withdrawn} icon={ShieldX} to="/outcomes" search={{ tab: "withdrawn" }} hint="Discontinued or stayed" />
-          <StatCard label="Under appeal" value={stats.appealed} icon={TrendingUp} tone="gold" to="/outcomes" search={{ tab: "appealed" }} hint="Pending at appellate courts" />
+          <StatCard
+            label="Total cases"
+            value={stats.total}
+            icon={Scale}
+            to="/cases"
+            search={{ mine: "yes" }}
+            hint="All matters you are counsel on"
+          />
+          <StatCard
+            label="Active cases"
+            value={stats.active}
+            icon={Activity}
+            tone="info"
+            to="/cases"
+            search={{ mine: "yes", status: "Active" }}
+            hint="Currently before the courts"
+          />
+          <StatCard
+            label="Won"
+            value={stats.won}
+            icon={BadgeCheck}
+            tone="success"
+            to="/outcomes"
+            search={{ tab: "won" }}
+            hint="Judgment in client's favour"
+          />
+          <StatCard
+            label="Lost"
+            value={stats.lost}
+            icon={XCircle}
+            tone="danger"
+            to="/outcomes"
+            search={{ tab: "lost" }}
+            hint="Adverse judgments"
+          />
+          <StatCard
+            label="Pending"
+            value={stats.pending}
+            icon={CircleDashed}
+            to="/outcomes"
+            search={{ tab: "pending" }}
+            hint="Awaiting final outcome"
+          />
+          <StatCard
+            label="Closed"
+            value={stats.closed}
+            icon={Gavel}
+            to="/cases"
+            search={{ mine: "yes", status: "Closed" }}
+            hint="Billed and archived"
+          />
+          <StatCard
+            label="Withdrawn / stopped"
+            value={stats.withdrawn}
+            icon={ShieldX}
+            to="/outcomes"
+            search={{ tab: "withdrawn" }}
+            hint="Discontinued or stayed"
+          />
+          <StatCard
+            label="Under appeal"
+            value={stats.appealed}
+            icon={TrendingUp}
+            tone="gold"
+            to="/outcomes"
+            search={{ tab: "appealed" }}
+            hint="Pending at appellate courts"
+          />
         </div>
       )}
 
@@ -195,7 +255,11 @@ function Dashboard() {
                     <div className="min-w-0">
                       <p className="truncate text-sm font-medium">
                         {c ? (
-                          <Link to="/cases/$caseId" params={{ caseId: c.id }} className="hover:underline">
+                          <Link
+                            to="/cases/$caseId"
+                            params={{ caseId: c.id }}
+                            className="hover:underline"
+                          >
                             {c.title}
                           </Link>
                         ) : (
@@ -218,7 +282,11 @@ function Dashboard() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <SectionCard title="Recent activity" description="Latest updates across your matters" bodyClassName="p-0">
+        <SectionCard
+          title="Recent activity"
+          description="Latest updates across your matters"
+          bodyClassName="p-0"
+        >
           <ul className="divide-y divide-border">
             {(activity ?? []).slice(0, 7).map((a) => (
               <li key={a.id} className="flex items-start gap-3 px-5 py-3.5">
@@ -245,7 +313,11 @@ function Dashboard() {
           </ul>
         </SectionCard>
 
-        <SectionCard title="Upcoming deadlines" description="Filing obligations requiring attention" bodyClassName="p-0">
+        <SectionCard
+          title="Upcoming deadlines"
+          description="Filing obligations requiring attention"
+          bodyClassName="p-0"
+        >
           {(deadlines ?? []).length === 0 ? (
             <EmptyState className="m-4 border-0" title="No deadlines recorded." />
           ) : (
@@ -277,7 +349,11 @@ function Dashboard() {
         </SectionCard>
       </div>
 
-      <SectionCard title="Matters needing attention" description="Highest priority open files" bodyClassName="p-0">
+      <SectionCard
+        title="Matters needing attention"
+        description="Highest priority open files"
+        bodyClassName="p-0"
+      >
         <ul className="divide-y divide-border">
           {list
             .filter((c) => c.outcome === "Pending")

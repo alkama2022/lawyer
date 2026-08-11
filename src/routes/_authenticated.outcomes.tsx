@@ -10,19 +10,45 @@ import type { CaseRecord } from "@/lib/types";
 
 const searchSchema = z.object({ tab: fallback(z.string(), "won").default("won") });
 
-const TABS: Array<{ id: string; label: string; match: (c: CaseRecord) => boolean; blurb: string }> = [
-  { id: "won", label: "Won", match: (c) => c.outcome === "Won", blurb: "Matters concluded in the client's favour." },
-  { id: "lost", label: "Lost", match: (c) => c.outcome === "Lost", blurb: "Adverse judgments, with outcome summaries." },
-  { id: "settled", label: "Settled", match: (c) => c.outcome === "Settled", blurb: "Resolved by terms of settlement." },
-  {
-    id: "withdrawn",
-    label: "Withdrawn / stopped",
-    match: (c) => c.outcome === "Withdrawn" || c.status === "Stayed" || c.status === "Withdrawn",
-    blurb: "Discontinued, stayed, abandoned or terminated matters.",
-  },
-  { id: "pending", label: "Pending", match: (c) => c.outcome === "Pending" && c.status !== "Appealed", blurb: "Matters without a final outcome." },
-  { id: "appealed", label: "Appealed", match: (c) => c.status === "Appealed", blurb: "Matters currently before appellate courts." },
-];
+const TABS: Array<{ id: string; label: string; match: (c: CaseRecord) => boolean; blurb: string }> =
+  [
+    {
+      id: "won",
+      label: "Won",
+      match: (c) => c.outcome === "Won",
+      blurb: "Matters concluded in the client's favour.",
+    },
+    {
+      id: "lost",
+      label: "Lost",
+      match: (c) => c.outcome === "Lost",
+      blurb: "Adverse judgments, with outcome summaries.",
+    },
+    {
+      id: "settled",
+      label: "Settled",
+      match: (c) => c.outcome === "Settled",
+      blurb: "Resolved by terms of settlement.",
+    },
+    {
+      id: "withdrawn",
+      label: "Withdrawn / stopped",
+      match: (c) => c.outcome === "Withdrawn" || c.status === "Stayed" || c.status === "Withdrawn",
+      blurb: "Discontinued, stayed, abandoned or terminated matters.",
+    },
+    {
+      id: "pending",
+      label: "Pending",
+      match: (c) => c.outcome === "Pending" && c.status !== "Appealed",
+      blurb: "Matters without a final outcome.",
+    },
+    {
+      id: "appealed",
+      label: "Appealed",
+      match: (c) => c.status === "Appealed",
+      blurb: "Matters currently before appellate courts.",
+    },
+  ];
 
 export const Route = createFileRoute("/_authenticated/outcomes")({
   validateSearch: zodValidator(searchSchema),

@@ -120,8 +120,7 @@ export const clientsApi = {
 };
 
 export const hearingsApi = {
-  list: () =>
-    ok([...hearings].sort((a, b) => +new Date(a.date) - +new Date(b.date))),
+  list: () => ok([...hearings].sort((a, b) => +new Date(a.date) - +new Date(b.date))),
   upcoming: (limit = 5) =>
     ok(
       hearings
@@ -133,8 +132,7 @@ export const hearingsApi = {
 };
 
 export const documentsApi = {
-  list: () =>
-    ok([...documents].sort((a, b) => +new Date(b.uploadedAt) - +new Date(a.uploadedAt))),
+  list: () => ok([...documents].sort((a, b) => +new Date(b.uploadedAt) - +new Date(a.uploadedAt))),
   forCase: (caseId: string) => ok(documents.filter((d) => d.caseId === caseId)),
 };
 
@@ -179,8 +177,7 @@ export function computeStats(list: CaseRecord[]): CaseStats {
       ? 0
       : Math.round(
           closedCases.reduce(
-            (sum, c) =>
-              sum + (+new Date(c.closedAt!) - +new Date(c.dateOpened)) / 86_400_000,
+            (sum, c) => sum + (+new Date(c.closedAt!) - +new Date(c.dateOpened)) / 86_400_000,
             0,
           ) / closedCases.length,
         );
@@ -274,4 +271,13 @@ export const searchApi = {
   },
 };
 
-export type { CaseRecord, Client, Hearing, CaseDocument, Lawyer, ActivityItem, AppNotification, Deadline };
+export type {
+  CaseRecord,
+  Client,
+  Hearing,
+  CaseDocument,
+  Lawyer,
+  ActivityItem,
+  AppNotification,
+  Deadline,
+};

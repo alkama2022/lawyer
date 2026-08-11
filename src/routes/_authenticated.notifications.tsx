@@ -27,7 +27,10 @@ export const Route = createFileRoute("/_authenticated/notifications")({
 });
 
 function NotificationsPage() {
-  const { data } = useQuery({ queryKey: ["notifications"], queryFn: () => notificationsApi.list() });
+  const { data } = useQuery({
+    queryKey: ["notifications"],
+    queryFn: () => notificationsApi.list(),
+  });
   const [read, setRead] = useState<string[]>([]);
   const items = data ?? [];
 

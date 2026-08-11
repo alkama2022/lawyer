@@ -4,14 +4,27 @@ import { useState } from "react";
 import { Download, Eye, FileText, MoreHorizontal, Search, Trash2, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { EmptyState, PageHeader, TableSkeleton } from "@/components/common/page";
 import { ConfirmDialog } from "@/components/common/confirm-dialog";
 import { casesApi, documentsApi } from "@/lib/api";
@@ -70,7 +83,12 @@ function DocumentsPage() {
       <div className="flex flex-wrap gap-3">
         <div className="relative min-w-[16rem] flex-1">
           <Search className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
-          <Input className="pl-9" placeholder="Search documents" value={q} onChange={(e) => setQ(e.target.value)} />
+          <Input
+            className="pl-9"
+            placeholder="Search documents"
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+          />
         </div>
         <Select value={type} onValueChange={setType}>
           <SelectTrigger className="w-56">
@@ -119,7 +137,11 @@ function DocumentsPage() {
                       <TableCell className="whitespace-nowrap">{d.type}</TableCell>
                       <TableCell className="whitespace-nowrap">
                         {c ? (
-                          <Link to="/cases/$caseId" params={{ caseId: c.id }} className="hover:underline">
+                          <Link
+                            to="/cases/$caseId"
+                            params={{ caseId: c.id }}
+                            className="hover:underline"
+                          >
                             {c.caseNumber}
                           </Link>
                         ) : (
@@ -137,7 +159,9 @@ function DocumentsPage() {
                             </Button>
                           </DropdownMenuTrigger>
                           <DropdownMenuContent align="end">
-                            <DropdownMenuItem onClick={() => toast.info("Secure viewer opens here")}>
+                            <DropdownMenuItem
+                              onClick={() => toast.info("Secure viewer opens here")}
+                            >
                               <Eye className="size-4" /> View
                             </DropdownMenuItem>
                             <DropdownMenuItem onClick={() => toast.success("Download started")}>

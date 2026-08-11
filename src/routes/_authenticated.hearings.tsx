@@ -15,7 +15,8 @@ export const Route = createFileRoute("/_authenticated/hearings")({
       { title: "Hearings & Court Calendar — Lexfolio" },
       {
         name: "description",
-        content: "Upcoming and past court listings with judge, court room, hearing type and status.",
+        content:
+          "Upcoming and past court listings with judge, court room, hearing type and status.",
       },
       { property: "og:title", content: "Hearings & Court Calendar — Lexfolio" },
       {
@@ -29,7 +30,10 @@ export const Route = createFileRoute("/_authenticated/hearings")({
 
 function HearingsPage() {
   const [selected, setSelected] = useState<Date | undefined>(new Date());
-  const { data: hearings } = useQuery({ queryKey: ["hearings"], queryFn: () => hearingsApi.list() });
+  const { data: hearings } = useQuery({
+    queryKey: ["hearings"],
+    queryFn: () => hearingsApi.list(),
+  });
   const { data: cases } = useQuery({ queryKey: ["cases", {}], queryFn: () => casesApi.list({}) });
 
   const all = hearings ?? [];
@@ -64,7 +68,9 @@ function HearingsPage() {
           <p className="text-sm font-medium">{fmtDate(h.date)}</p>
           <p className="text-xs text-muted-foreground">{h.time}</p>
         </div>
-        <Tone tone={h.status === "Scheduled" ? "gold" : h.status === "Adjourned" ? "danger" : "neutral"}>
+        <Tone
+          tone={h.status === "Scheduled" ? "gold" : h.status === "Adjourned" ? "danger" : "neutral"}
+        >
           {h.status}
         </Tone>
       </li>
@@ -102,7 +108,11 @@ function HearingsPage() {
             bodyClassName="p-0"
           >
             {dayList.length === 0 ? (
-              <EmptyState className="m-4 border-0" icon={<CalendarClock className="size-5" />} title="No hearings on this date." />
+              <EmptyState
+                className="m-4 border-0"
+                icon={<CalendarClock className="size-5" />}
+                title="No hearings on this date."
+              />
             ) : (
               <ul className="divide-y divide-border">
                 {dayList.map((h) => (

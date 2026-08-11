@@ -3,7 +3,13 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { PageHeader, SectionCard } from "@/components/common/page";
 import { StatCard } from "@/components/common/stat-card";
 import { BarsChart, ChartLegend, DonutChart, TrendChart } from "@/components/charts/charts";
@@ -17,7 +23,8 @@ export const Route = createFileRoute("/_authenticated/reports")({
       { title: "Reports & Analytics — Lexfolio" },
       {
         name: "description",
-        content: "Case performance analytics by outcome, year, legal category, court and success rate.",
+        content:
+          "Case performance analytics by outcome, year, legal category, court and success rate.",
       },
       { property: "og:title", content: "Reports & Analytics — Lexfolio" },
       {
@@ -69,7 +76,20 @@ function ReportsPage() {
     value: list.filter((c) => c.court === court).length,
   }));
 
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   const monthly = months.map((m, i) => ({
     name: m,
     value: list.filter((c) => new Date(c.updatedAt).getMonth() === i).length,
@@ -120,7 +140,11 @@ function ReportsPage() {
                 ))}
               </SelectContent>
             </Select>
-            <Button variant="outline" size="sm" onClick={() => toast.info("Report export coming soon")}>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => toast.info("Report export coming soon")}
+            >
               <Download className="size-4" /> Export
             </Button>
           </>
@@ -140,14 +164,23 @@ function ReportsPage() {
 
       <div className="grid gap-6 lg:grid-cols-2">
         <SectionCard title="Case outcome distribution">
-          <DonutChart data={outcomeData} centerValue={`${stats.successRate}%`} centerLabel="Success rate" />
+          <DonutChart
+            data={outcomeData}
+            centerValue={`${stats.successRate}%`}
+            centerLabel="Success rate"
+          />
           <ChartLegend data={outcomeData} />
         </SectionCard>
         <SectionCard title="Cases per year">
           <BarsChart data={perYear} />
         </SectionCard>
         <SectionCard title="Cases by legal category">
-          <BarsChart data={byCategory} layout="horizontal" height={320} color="var(--color-chart-5)" />
+          <BarsChart
+            data={byCategory}
+            layout="horizontal"
+            height={320}
+            color="var(--color-chart-5)"
+          />
         </SectionCard>
         <SectionCard title="Cases by court">
           <BarsChart data={byCourt} layout="horizontal" height={300} color="var(--color-chart-3)" />

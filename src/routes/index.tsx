@@ -113,8 +113,7 @@ function LoginPage() {
           <p className="text-eyebrow">Counsel portal</p>
           <h2 className="mt-1 text-2xl font-semibold">Sign in to your chambers</h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Use your firm credentials. Sessions expire automatically after 45 minutes of
-            inactivity.
+            Use your firm credentials. Sessions expire automatically after 45 minutes of inactivity.
           </p>
 
           <form onSubmit={onSubmit} className="mt-7 space-y-4">

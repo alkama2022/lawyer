@@ -1,6 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { CalendarClock, Download, FileText, Gavel, Mail, MapPin, Phone, Trash2 } from "lucide-react";
+import {
+  CalendarClock,
+  Download,
+  FileText,
+  Gavel,
+  Mail,
+  MapPin,
+  Phone,
+  Trash2,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -94,7 +103,11 @@ function CaseDetail() {
             <StatusBadge status={record.status} />
             <OutcomeBadge outcome={record.outcome} />
             <PriorityBadge priority={record.priority} />
-            <Button size="sm" variant="outline" onClick={() => toast.info("Hearing scheduler opens here")}>
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={() => toast.info("Hearing scheduler opens here")}
+            >
               <CalendarClock className="size-4" /> Schedule hearing
             </Button>
             <Button size="sm" variant="ghost" onClick={() => setConfirmDelete(true)}>
@@ -124,8 +137,16 @@ function CaseDetail() {
               <Row label="Date opened" value={fmtDate(record.dateOpened)} />
               <Row label="Current status" value={<StatusBadge status={record.status} />} />
               <Row label="Outcome" value={<OutcomeBadge outcome={record.outcome} />} />
-              <Row label="Duration" value={durationBetween(record.dateOpened, record.closedAt ?? new Date().toISOString())} />
-              {record.outcomeSummary && <Row label="Outcome summary" value={record.outcomeSummary} />}
+              <Row
+                label="Duration"
+                value={durationBetween(
+                  record.dateOpened,
+                  record.closedAt ?? new Date().toISOString(),
+                )}
+              />
+              {record.outcomeSummary && (
+                <Row label="Outcome summary" value={record.outcomeSummary} />
+              )}
             </SectionCard>
 
             <div className="space-y-6">
@@ -134,7 +155,11 @@ function CaseDetail() {
                   label="Client"
                   value={
                     client ? (
-                      <Link to="/clients/$clientId" params={{ clientId: client.id }} className="hover:underline">
+                      <Link
+                        to="/clients/$clientId"
+                        params={{ clientId: client.id }}
+                        className="hover:underline"
+                      >
                         {client.name}
                       </Link>
                     ) : (
@@ -244,7 +269,11 @@ function CaseDetail() {
           <SectionCard
             title="Documents"
             actions={
-              <Button size="sm" variant="outline" onClick={() => toast.info("Secure upload opens here")}>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => toast.info("Secure upload opens here")}
+              >
                 Upload document
               </Button>
             }
@@ -260,10 +289,15 @@ function CaseDetail() {
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium">{d.name}</p>
                       <p className="text-xs text-muted-foreground">
-                        {d.type} · v{d.version} · {fmtSize(d.sizeKb)} · uploaded {fmtDate(d.uploadedAt)} by {d.uploadedBy}
+                        {d.type} · v{d.version} · {fmtSize(d.sizeKb)} · uploaded{" "}
+                        {fmtDate(d.uploadedAt)} by {d.uploadedBy}
                       </p>
                     </div>
-                    <Button size="sm" variant="ghost" onClick={() => toast.info("Secure viewer opens here")}>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => toast.info("Secure viewer opens here")}
+                    >
                       <Download className="size-4" /> Download
                     </Button>
                   </li>
