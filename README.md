@@ -51,28 +51,28 @@ Copy `.env.example` to `.env` and adjust values:
 cp .env.example .env
 ```
 
-| Variable | Description | Default |
-| --- | --- | --- |
-| `VITE_API_BASE_URL` | Base URL of the backend API | `/api` |
-| `VITE_DEMO_EMAIL` | Demo sign-in email (mock auth layer) | `a.musa@haldane-partners.law` |
-| `VITE_DEMO_PASSWORD` | Demo sign-in password (mock auth layer) | `Chambers2026` |
-| `PORT` | Production server port (nitro) | `3000` |
-| `NITRO_HOST` | Production server bind address (nitro) | `0.0.0.0` |
+| Variable             | Description                             | Default                       |
+| -------------------- | --------------------------------------- | ----------------------------- |
+| `VITE_API_BASE_URL`  | Base URL of the backend API             | `/api`                        |
+| `VITE_DEMO_EMAIL`    | Demo sign-in email (mock auth layer)    | `a.musa@haldane-partners.law` |
+| `VITE_DEMO_PASSWORD` | Demo sign-in password (mock auth layer) | `Chambers2026`                |
+| `PORT`               | Production server port (nitro)          | `3000`                        |
+| `NITRO_HOST`         | Production server bind address (nitro)  | `0.0.0.0`                     |
 
 `.env` is git-ignored. Only `VITE_*` variables are exposed to the browser;
 never put secrets in them. See `.env.example` for the complete template.
 
 ## Scripts
 
-| Command | Description |
-| --- | --- |
-| `npm run dev` | Start the development server |
-| `npm run build` | Production build (client + Nitro server in `.output/`) |
-| `npm run start` | Serve the production build (`node .output/server/index.mjs`) |
-| `npm run preview` | Preview the production build with Vite |
-| `npm run typecheck` | TypeScript type checking |
-| `npm run lint` | ESLint (includes Prettier checks) |
-| `npm run format` | Format the codebase with Prettier |
+| Command             | Description                                                  |
+| ------------------- | ------------------------------------------------------------ |
+| `npm run dev`       | Start the development server                                 |
+| `npm run build`     | Production build (client + Nitro server in `.output/`)       |
+| `npm run start`     | Serve the production build (`node .output/server/index.mjs`) |
+| `npm run preview`   | Preview the production build with Vite                       |
+| `npm run typecheck` | TypeScript type checking                                     |
+| `npm run lint`      | ESLint (includes Prettier checks)                            |
+| `npm run format`    | Format the codebase with Prettier                            |
 
 ## Production Build
 
