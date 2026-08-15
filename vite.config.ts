@@ -11,10 +11,8 @@ export default defineConfig({
     tailwindcss(),
     tanstackStart(),
     nitro({
-      preset: "node-server",
-      output: {
-        dir: ".output",
-      },
+      preset: process.env["VERCEL"] ? "vercel" : "node-server",
+      ...(process.env["VERCEL"] ? {} : { output: { dir: ".output" } }),
     }),
     react(),
   ],
